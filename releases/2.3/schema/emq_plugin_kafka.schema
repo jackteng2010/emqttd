@@ -1,0 +1,24 @@
+%%-*- mode: erlang -*-
+%% emq_plugin_kafka config mapping
+
+{mapping, "auth.kafka.host", "emq_plugin_kafka.kafka", [
+  {default, "127.0.0.1"},
+  {datatype, string}
+]}.
+
+{mapping, "auth.kafka.port", "emq_plugin_kafka.kafka", [
+  {default, "9092"},
+  {datatype, string}
+]}.
+
+{mapping, "auth.kafka.topic", "emq_plugin_kafka.kafka", [
+  {default, "test-topic"},
+  {datatype, string}
+]}.
+
+{translation, "emq_plugin_kafka.kafka", fun(Conf) ->
+  MyHost = cuttlefish:conf_get("auth.kafka.host", Conf),
+  MyPort = cuttlefish:conf_get("auth.kafka.port", Conf),
+  MyTopic = cuttlefish:conf_get("auth.kafka.topic", Conf),
+  [{host, MyHost}, {port, MyPort}, {topic, MyTopic}]
+end}.

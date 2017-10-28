@@ -1,0 +1,11 @@
+{application,ekka,
+             [{description,"Autocluster and Autoheal for EMQ"},
+              {vsn,"0.2"},
+              {modules, ['ekka','ekka_app','ekka_autoclean','ekka_autocluster','ekka_autoheal','ekka_boot','ekka_cluster','ekka_cluster_dns','ekka_cluster_etcd','ekka_cluster_k8s','ekka_cluster_mcast','ekka_cluster_static','ekka_cluster_strategy','ekka_cluster_sup','ekka_guid','ekka_httpc','ekka_membership','ekka_mnesia','ekka_node','ekka_node_monitor','ekka_node_ttl','ekka_sup']},
+              {env,[{cluster_autoheal,true},
+                    {cluster_autoclean,300000},
+                    {cluster_discovery,{manual,[]}}]},
+              {registered,[ekka_sup,ekka_membership,ekka_cluster_sup,
+                           ekka_node_monitor]},
+              {applications,[kernel,stdlib,mnesia,lager]},
+              {mod,{ekka_app,[]}}]}.

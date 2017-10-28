@@ -1,0 +1,10 @@
+{application,emq_elixir_plugin,
+             [{applications,[kernel,stdlib,elixir,logger]},
+              {description,"emq_elixir_plugin"},
+              {modules,['Elixir.EmqElixirPlugin',
+                        'Elixir.EmqElixirPlugin.Body',
+                        'Elixir.EmqElixirPlugin.Supervisor']},
+              {registered,[]},
+              {vsn,"2.2.0"},
+              {extra_applications,[logger]},
+              {mod,{'Elixir.EmqElixirPlugin',[]}}]}.
